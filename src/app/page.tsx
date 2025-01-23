@@ -28,7 +28,6 @@ export default async function Home() {
   const responseMock = getAntiqueDataMock();
   const antiquesMock = responseMock.data;
 
-  // integrate issue key test
 
   const response = await getAntiqueData();
   const antiques = response.data;
