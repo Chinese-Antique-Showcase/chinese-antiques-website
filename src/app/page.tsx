@@ -32,6 +32,7 @@ export default async function Home() {
   const response = await getAntiqueData();
   const antiques = response.data;
 
+  //test comment on right branch
   return (
 
     // Replace antiques with antiquesMock
