@@ -1,0 +1,60 @@
+name: Deploy Chinese Antique Website
+
+#run-name denoted by commit name in triggered push
+on:
+  push:
+    branches:
+      - main
+
+#Saves $$ (not having to run these commands on my own machine)
+jobs:
+  deploy:
+    #runner that once completed, gets a new clean state and turns off. Hence, 'runner'
+    #implications: nothing is stored
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Deploy Project
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOST }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd /var/www/yangantiques.com
+
+            git pull origin main
+
+            #Install dependencies (if needed - clean install)
+            npm ci
+
+            # Build the project (if needed)
+            npm run build
+
+            # Restart your application (adjust based on how you're running it)
+            pm2 restart nextjs-app  # If using PM2
+
+          
+      
+
+
+
+
+
+      
+
+          
+      
+
+
+
+
+
+          
+      
+
+
+
+
