@@ -32,7 +32,7 @@ interface Antique {
   Price: number;
 }
 
-export default async function Home() {
+export default async function HomePage() {
 
   // const responseMock = getAntiqueDataMock();
   // const antiquesMock = responseMock.data;
