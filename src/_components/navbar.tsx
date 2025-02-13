@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { VscMenu } from "react-icons/vsc";
 
-import { Menu, MenuButton, MenuHeading, MenuItem, MenuItems, MenuSection, MenuSeparator } from '@headlessui/react'
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
 export default function NavBar() {
 
