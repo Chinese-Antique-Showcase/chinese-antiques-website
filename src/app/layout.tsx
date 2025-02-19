@@ -1,4 +1,4 @@
-import "./globals.css"
+import "./globals.css";
 import NavBar from "@/_components/navbar";
 
 export default function RootLayout({
@@ -10,9 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col items-center justify-center">
         <NavBar />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );
