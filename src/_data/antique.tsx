@@ -27,3 +27,7 @@ export interface AdditionalPhoto {
     };
   };
 }
+
+export interface IDItem {
+  documentId: string;
+}
