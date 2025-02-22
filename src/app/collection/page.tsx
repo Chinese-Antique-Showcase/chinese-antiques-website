@@ -1,7 +1,7 @@
 import { Carousel } from "@/_components/carousel/carousel";
 import { AdditionalPhoto, DisplayAntique, RawAntique } from "@/_data/antique";
 
-async function getAntiqueData() {
+async function getAntiquesData() {
   const res = await fetch(`${process.env.STRAPI_URL}/api/antiques?populate=*`, {
     cache: "force-cache", // Cache the data if it doesn't update often
     headers: {
@@ -17,7 +17,7 @@ async function getAntiqueData() {
 }
 
 export default async function CollectionPage() {
-  const response = await getAntiqueData();
+  const response = await getAntiquesData();
 
   const rawAntiques = response.data.map((item: RawAntique) => ({
     Name: item.Name,
