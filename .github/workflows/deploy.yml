@@ -24,7 +24,7 @@ jobs:
           script: |
             cd /var/www/yangantiques.com/chinese-antiques-website
 
-            git fetch -all
+            git fetch --all
             git reset --hard origin/main
 
             #Install dependencies (if needed - clean install)
