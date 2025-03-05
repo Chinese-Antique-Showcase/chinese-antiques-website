@@ -3,12 +3,15 @@ import { AdditionalPhoto, DisplayAntique, IDItem } from "@/_data/antique";
 
 // TODO - change to create own 404 page / look into more
 // A configuration value to denote whether or not to generate pages that exist
-// (https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamicparams)
 
+//Individual pages may not exist first time / will be updated , so we need to generate / revalidate them
+//caching still happens automatically: export const dynamic = 'auto' - is done BTS
+//(https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamicparams)
+export const dynamicParams = true;
 
-//Force page to render statically (except images)
-export const dynamic = "force-static"; //Also sets: export const dynamicParams = false;  
-
+//-------------------------------------
+//-----------------------------------
+//Generate static paths at build time
 export async function generateStaticParams() {
   const response = await fetch(
     `${process.env.STRAPI_URL}/api/antiques?fields=id`,
@@ -40,6 +43,7 @@ async function getAntiqueData(antiqueID: string) {
       headers: {
         Authorization: `Bearer ${process.env.API_BEARER_TOKEN}`,
       },
+      next: { tags: [antiqueID] },
     }
   );
 

@@ -1,7 +1,7 @@
 import { Carousel } from "@/_components/carousel/carousel";
 import { AdditionalPhoto, DisplayAntique, RawAntique } from "@/_data/antique";
 
-export const dynamic = "force-static";
+export const dynamic = "error";
 async function getAntiquesData() {
   const res = await fetch(`${process.env.STRAPI_URL}/api/antiques?populate=*`, {
     cache: "force-cache", // Cache the data if it doesn't update often
