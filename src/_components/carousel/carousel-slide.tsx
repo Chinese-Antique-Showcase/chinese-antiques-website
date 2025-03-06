@@ -5,7 +5,7 @@ interface CarouselSlideProps {
 }
 export function CarouselSlide({ imageURL }: CarouselSlideProps) {
   return (
-    <div className="grow-0 shrink-0 basis-full w-20 h-20 ">
+    <div className="min-w-full h-40 relative">
       <Image
         src={imageURL}
         alt="antique image"
