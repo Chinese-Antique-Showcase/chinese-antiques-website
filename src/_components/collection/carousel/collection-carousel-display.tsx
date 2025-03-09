@@ -2,7 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import { DisplayAntique } from "@/_data/antique";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CollectionCarouselThumb } from "./collection-carousel-thumb";
 import { CollectionCarouselSlide } from "./collection-carousel-slide";
 
@@ -20,15 +20,26 @@ export function CollectionCarouselDisplay({
 
   const [emblaThumbnailsRef, emblaThumbnailsApi] = useEmblaCarousel({});
 
+  const allPhotos = [MainPhotoURL, ...AdditionalPhotoURLs];
+
   const thumbnailClick = (index: number) => {
+    if (!emblaMainApi || !emblaThumbnailsApi) return;
+
     setSelectedIndex(index);
     emblaMainApi?.scrollTo(index);
     emblaThumbnailsApi?.scrollTo(index);
-    // if embla thumb gets clicked, sroll embla thum carousel too.
-    //But also change seleted... to true. on click
   };
 
-  const allPhotos = [MainPhotoURL, ...AdditionalPhotoURLs];
+  const onSelectMainSlide = useCallback(() => {
+    if (!emblaMainApi || !emblaThumbnailsApi) return;
+
+    setSelectedIndex(emblaMainApi.selectedScrollSnap());
+    emblaThumbnailsApi.scrollTo(emblaMainApi.selectedScrollSnap());
+  }, [emblaMainApi, emblaThumbnailsApi, setSelectedIndex]);
+
+  useEffect(() => {
+    emblaMainApi?.on("select", onSelectMainSlide);
+  }, [selectedIndex, emblaMainApi, onSelectMainSlide]);
 
   return (
     <div className="grid grid-rows-subgrid row-span-4">
