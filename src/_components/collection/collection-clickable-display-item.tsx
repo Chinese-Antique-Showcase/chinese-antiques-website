@@ -26,10 +26,10 @@ export const CollectionClickableDisplayItem = ({
       </Link>
 
       <Link href={`/collection/${ID}`}>
-        <p className="text-lg">{Name}</p>
+        <p className="text-sm leading-tight">{Name}</p>
       </Link>
       
-      <p className="text-slate-500">${Price}</p>
+      <p className="text-slate-500 text-sm">${Price}</p>
     </div>
   );
 };
