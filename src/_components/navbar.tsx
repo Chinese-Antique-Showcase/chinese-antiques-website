@@ -31,10 +31,10 @@ export default function NavBar() {
   return (
     <Menu>
       {/* Only for mobile display (sm:hidden tag) */}
-      <MenuButton className="sm:hidden flex items-center space-x-2 py-3">
+      <MenuButton className="sm:hidden flex space-x-2 py-3 min-w-full">
         <span className="flex items-center space-x-2">
-          <VscMenu aria-hidden="true" />
-          <span>Yang Antiques</span>{" "}
+          <VscMenu aria-hidden="true" size={28} />
+          <span className="text-2xl font-serif font-yang">Yang Antiques</span>
           {/* TODO - is this semantically correct? */}
         </span>
       </MenuButton>

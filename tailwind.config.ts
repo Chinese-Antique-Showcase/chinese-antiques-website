@@ -11,6 +11,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+
+      fontFamily: {
+        yang: ["Lora", "serif"], // or 'Playfair Display', 'Crimson Text'
+      },
     },
   },
   plugins: [],
