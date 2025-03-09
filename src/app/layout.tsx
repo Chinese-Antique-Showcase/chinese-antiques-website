@@ -8,9 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-col items-center justify-center">
+      <body className="flex flex-col items-center justify-center px-6">
         <NavBar />
-        <main>{children}</main>
+        <main className="w-full">{children}</main>
       </body>
     </html>
   );

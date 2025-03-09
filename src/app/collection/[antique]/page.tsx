@@ -1,4 +1,4 @@
-import { Carousel } from "@/_components/carousel/carousel";
+import { CollectionCarouselDisplay } from "@/_components/collection/carousel/collection-carousel-display";
 import { AdditionalPhoto, DisplayAntique, IDItem } from "@/_data/antique";
 
 // TODO - change to create own 404 page / look into more
@@ -73,16 +73,18 @@ export default async function AntiquePage({
         (photo: AdditionalPhoto) =>
           `${process.env.STRAPI_URL}${photo.formats?.thumbnail?.url ?? ""}`
       ) ?? [],
+    ID: response.data.documentId,
   };
 
   return (
     <div className="grid grid-cols-1 auto-rows-auto">
-      <Carousel
+      <CollectionCarouselDisplay
         key={0}
         Name={rawAntique.Name}
         Price={rawAntique.Price}
         MainPhotoURL={rawAntique.MainPhotoURL}
         AdditionalPhotoURLs={rawAntique.AdditionalPhotoURLs}
+        ID={rawAntique.ID}
       />
     </div>
   );

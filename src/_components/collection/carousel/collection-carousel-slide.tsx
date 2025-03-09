@@ -3,9 +3,9 @@ import Image from "next/image";
 interface CarouselSlideProps {
   imageURL: string;
 }
-export function CarouselSlide({ imageURL }: CarouselSlideProps) {
+export function CollectionCarouselSlide({ imageURL }: CarouselSlideProps) {
   return (
-    <div className="min-w-full h-40 relative">
+    <div className="min-w-full min-h-full relative">
       <Image
         src={imageURL}
         alt="antique image"

@@ -1,5 +1,8 @@
 export interface DisplayAntique {
   Name: string;
+
+  ID: string;
+
   Price: number;
   MainPhotoURL: string;
   AdditionalPhotoURLs: string[];
@@ -8,6 +11,8 @@ export interface DisplayAntique {
 // From the Strapi api response
 export interface RawAntique {
   Name: string;
+
+  documentId: string;
   TimePeriod: string;
   Price: number;
   MainPhoto: {

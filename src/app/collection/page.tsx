@@ -1,4 +1,4 @@
-import { Carousel } from "@/_components/carousel/carousel";
+import { CollectionClickableDisplayItem } from "@/_components/collection/collection-clickable-display-item";
 import { AdditionalPhoto, DisplayAntique, RawAntique } from "@/_data/antique";
 
 export const dynamic = "error";
@@ -22,6 +22,7 @@ export default async function CollectionPage() {
 
   const rawAntiques = response.data.map((item: RawAntique) => ({
     Name: item.Name,
+    ID: item.documentId,
     TimePeriod: item.TimePeriod,
     Price: item.Price,
     MainPhotoURL: item.MainPhoto?.formats?.thumbnail?.url
@@ -48,12 +49,12 @@ export default async function CollectionPage() {
             sm:grid-cols-3"
     >
       {rawAntiques.map((antique: DisplayAntique, index: number) => (
-        <Carousel
+        <CollectionClickableDisplayItem
           key={index}
           Name={antique.Name}
           Price={antique.Price}
           MainPhotoURL={antique.MainPhotoURL}
-          AdditionalPhotoURLs={antique.AdditionalPhotoURLs}
+          ID={antique.ID}
         />
       ))}
     </div>
