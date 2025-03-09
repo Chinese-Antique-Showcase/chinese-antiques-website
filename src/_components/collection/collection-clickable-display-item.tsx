@@ -15,7 +15,7 @@ export const CollectionClickableDisplayItem = ({
   return (
     <div className="grid grid-rows-subgrid row-span-3 mb-4">
       <Link href={`/collection/${ID}`}>
-        <div className="min-w-full h-24 relative">
+        <div className="min-w-full h-36 relative">
           <Image
             src={MainPhotoURL}
             alt="antique image"

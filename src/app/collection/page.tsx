@@ -44,7 +44,7 @@ export default async function CollectionPage() {
             auto-rows-auto
             
             
-            gap-x-4 px-6 py-16
+            gap-x-4 py-4
             
             sm:grid-cols-3"
     >
