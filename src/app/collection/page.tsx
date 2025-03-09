@@ -1,4 +1,5 @@
 import { CollectionClickableDisplayItem } from "@/_components/collection/collection-clickable-display-item";
+import { FilterBar } from "@/_components/collection/filter-bar";
 import { AdditionalPhoto, DisplayAntique, RawAntique } from "@/_data/antique";
 
 export const dynamic = "error";
@@ -37,8 +38,10 @@ export default async function CollectionPage() {
 
   return (
     // Collection
-    <div
-      className="grid 
+    <div>
+      <FilterBar />
+      <div
+        className="grid 
             
             grid-cols-2 
             auto-rows-auto
@@ -47,16 +50,17 @@ export default async function CollectionPage() {
             gap-x-4 py-4
             
             sm:grid-cols-3"
-    >
-      {rawAntiques.map((antique: DisplayAntique, index: number) => (
-        <CollectionClickableDisplayItem
-          key={index}
-          Name={antique.Name}
-          Price={antique.Price}
-          MainPhotoURL={antique.MainPhotoURL}
-          ID={antique.ID}
-        />
-      ))}
+      >
+        {rawAntiques.map((antique: DisplayAntique, index: number) => (
+          <CollectionClickableDisplayItem
+            key={index}
+            Name={antique.Name}
+            Price={antique.Price}
+            MainPhotoURL={antique.MainPhotoURL}
+            ID={antique.ID}
+          />
+        ))}
+      </div>
     </div>
   );
 }
