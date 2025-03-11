@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/_components/navbar";
 import ReactDOM from "react-dom";
+import { Footer } from "@/_components/footer";
 
 // ReactDOM.preconnect("https://fonts.googleapis.com", { crossOrigin?: string })
 
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className="flex flex-col items-center justify-center px-2">
         <NavBar />
         <main className="w-full">{children}</main>
+        <Footer/>
       </body>
     </html>
   );
