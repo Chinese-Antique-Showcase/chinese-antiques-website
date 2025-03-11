@@ -21,11 +21,14 @@ export default function ContactPage() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Format the email body with line breaks
-    const body = `Name: ${formData.name}%0D%0A%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    // Properly encode the form data for use in mailto URL
+    const encodedSubject = encodeURIComponent("Contact Form Submission");
+    const encodedBody = encodeURIComponent(
+      `Name: ${formData.name}\n\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
 
-    // Create the mailto link with form data
-    const mailtoLink = `mailto:your-email@example.com?subject=Contact Form Submission&body=${body}`;
+    // Create the mailto link with properly encoded parameters
+    const mailtoLink = `mailto:your-email@example.com?subject=${encodedSubject}&body=${encodedBody}`;
 
     // Open the user's default email client
     window.location.href = mailtoLink;
@@ -33,7 +36,7 @@ export default function ContactPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
+      <h1 className="text-3xl font-bold mb-2">Contact Us</h1>
 
       <p className="mb-6 text-gray-600">
         If you&apos;d like to directly email me, you can do so at{" "}
