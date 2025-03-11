@@ -1,18 +1,17 @@
 import Link from "next/link";
 import { VscMenu } from "react-icons/vsc";
-import { Lora } from 'next/font/google';
+import { Lora } from "next/font/google";
+import { GiColumnVase } from "react-icons/gi";
 
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
-const lora = Lora({ subsets: ['latin'], weight: ['400', '700'] });
+const lora = Lora({ subsets: ["latin"], weight: ["400", "700"] });
 export default function NavBar() {
-
   const links = [
     { href: "/", label: "Home" },
     { href: "/collection", label: "Collection" },
     { href: "/contact", label: "Contact" },
   ];
-
 
   return (
     <Menu>
@@ -21,6 +20,11 @@ export default function NavBar() {
         <span className="flex items-center space-x-2">
           <VscMenu aria-hidden="true" size={28} />
           <span className={`text-2xl ${lora.className}`}>Yang Antiques</span>
+          <GiColumnVase
+            aria-hidden="true"
+            size={28}
+            className="fill-yellow-400 border-b-2 border-black"
+          />
         </span>
       </MenuButton>
 
@@ -31,8 +35,10 @@ export default function NavBar() {
       >
         {links.map((link) => {
           return (
-            <MenuItem key={link.label}  >
-              <Link href={link.href} className="border-b border-slate-500 p-1">{link.label}</Link>
+            <MenuItem key={link.label}>
+              <Link href={link.href} className="border-b border-slate-500 p-1">
+                {link.label}
+              </Link>
             </MenuItem>
           );
         })}

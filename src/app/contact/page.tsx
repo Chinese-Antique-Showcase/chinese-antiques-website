@@ -99,7 +99,7 @@ export default function ContactPage() {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="bg-yellow-400 text-white py-2 px-6 rounded-md hover:bg-yellow-700 transition-colors"
+            className="bg-amber-700 text-white py-2 px-6 rounded-md hover:bg-amber-900 transition-colors"
           >
             Send Message
           </button>
