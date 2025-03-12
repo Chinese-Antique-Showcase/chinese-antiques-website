@@ -7,7 +7,7 @@ export default async function HomePage() {
       <section className="py-16 px-6 md:py-24 md:px-12 bg-white border-b border-gray-100">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900">
-            Feng Yang
+            John Yang
           </h1>
           <p className="text-xl text-gray-600 mb-10 font-light">
             Curating exceptional Chinese antiquities for over a decade
@@ -96,7 +96,7 @@ export default async function HomePage() {
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-3xl mx-auto text-center">
           <blockquote className="text-xl italic text-gray-600 mb-6">
-            &quot;Feng&apos;s knowledge of Chinese antiquities and commitment to
+            &quot;John&apos;s knowledge of Chinese antiquities and commitment to
             authenticity has made him our trusted advisor for building our
             collection.&quot;
           </blockquote>
