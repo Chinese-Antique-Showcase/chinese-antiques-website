@@ -2,6 +2,7 @@ export interface DisplayAntique {
   Name: string;
 
   ID: string;
+  Description: string;
 
   Price: number;
   MainPhotoURL: string;
@@ -9,7 +10,7 @@ export interface DisplayAntique {
 }
 
 // From the Strapi api response
-export interface RawAntique {
+export interface RawResponseAntique {
   Name: string;
 
   documentId: string;

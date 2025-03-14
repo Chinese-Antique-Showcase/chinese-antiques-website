@@ -63,8 +63,10 @@ export default async function AntiquePage({
   const response = await getAntiqueData(antique);
 
   const rawAntique: DisplayAntique = {
+    ID: response.data.documentId,
     Name: response.data.Name,
     Price: response.data.Price,
+    Description: response.data.Description,
     MainPhotoURL: response.data.MainPhoto?.formats?.thumbnail?.url
       ? `${process.env.STRAPI_URL}${response.data.MainPhoto.formats.thumbnail.url}`
       : "",
@@ -73,7 +75,6 @@ export default async function AntiquePage({
         (photo: AdditionalPhoto) =>
           `${process.env.STRAPI_URL}${photo.formats?.thumbnail?.url ?? ""}`
       ) ?? [],
-    ID: response.data.documentId,
   };
 
   return (
@@ -82,6 +83,7 @@ export default async function AntiquePage({
         key={0}
         Name={rawAntique.Name}
         Price={rawAntique.Price}
+        Description={rawAntique.Description}
         MainPhotoURL={rawAntique.MainPhotoURL}
         AdditionalPhotoURLs={rawAntique.AdditionalPhotoURLs}
         ID={rawAntique.ID}

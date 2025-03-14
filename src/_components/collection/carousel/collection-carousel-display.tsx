@@ -11,6 +11,7 @@ export function CollectionCarouselDisplay({
   Price,
   MainPhotoURL,
   AdditionalPhotoURLs,
+  Description
 }: DisplayAntique) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -42,7 +43,7 @@ export function CollectionCarouselDisplay({
   }, [selectedIndex, emblaMainApi, onSelectMainSlide]);
 
   return (
-    <div className="grid grid-rows-subgrid row-span-4">
+    <div className="grid grid-rows-subgrid row-span-5">
       {/* Main Container */}
       <div className="w-full h-full border flex justify-center">
         {/* Minimally need 2 things - embla viewport and embla container for rendering slides: https://www.embla-carousel.com/get-started/react/  */}
@@ -75,8 +76,12 @@ export function CollectionCarouselDisplay({
         </div>
       </div>
 
-      <p className="text-lg">{Name}</p>
+
+      <p className="text-xl mb-2">{Name}</p>
+      <p className="text-base mb-2">{Description}</p>
+
       <p className="text-slate-500">${Price}</p>
+      
 
       {/* <div className="flex flex-col flex-nowrap justify-self-center items-center gap-1   ">
         </div> */}

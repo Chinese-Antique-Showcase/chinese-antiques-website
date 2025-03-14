@@ -1,6 +1,10 @@
 import { CollectionClickableDisplayItem } from "@/_components/collection/collection-clickable-display-item";
 import { FilterBar } from "@/_components/collection/filter-bar";
-import { AdditionalPhoto, DisplayAntique, RawAntique } from "@/_data/antique";
+import {
+  AdditionalPhoto,
+  DisplayAntique,
+  RawResponseAntique,
+} from "@/_data/antique";
 
 export const dynamic = "error";
 async function getAntiquesData() {
@@ -21,7 +25,7 @@ async function getAntiquesData() {
 export default async function CollectionPage() {
   const response = await getAntiquesData();
 
-  const rawAntiques = response.data.map((item: RawAntique) => ({
+  const rawAntiques = response.data.map((item: RawResponseAntique) => ({
     Name: item.Name,
     ID: item.documentId,
     TimePeriod: item.TimePeriod,
