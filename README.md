@@ -20,4 +20,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Ensure that you sanitize the build first by running `npm run build`. Confirm that there are no errors there before comitting and pushing code to repo.
 
-The changes should then be present under www.yangantiques.com
+The changes should then be present under www.yangantiques.com. As of right now, it's optimized only for mobile.
